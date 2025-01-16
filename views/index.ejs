@@ -3,30 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spline 3D Model</title>
-    <!-- TailwindCSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: rgba(5, 5, 5, 0.965); /* Set background color to black */
-        }
-        spline-viewer {
-            width: 100%;
-            height: 100%;
-            display: block;
-            transform: scale(0.6); /* Adjust scale as needed */
-            transform-origin: center; /* Keep the scaling centered */
-        }
-    </style>
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/index.css">   
+
 </head>
-<body class="h-screen flex justify-start items-center relative">
-    <!-- Spline Viewer as Static Background -->
-    <div class="absolute top-0 left-0 w-1/2 h-full z-0 flex justify-center items-center overflow-hidden">
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
-        <spline-viewer 
-            url="https://prod.spline.design/NNvK4ET13E-mB0Ok/scene.splinecode" 
-            interaction-events="none">
-        </spline-viewer>
+<body>
+    <div class="bg">
+        <img src="./images/taxpic4.jpg">
     </div>
+    <input type="checkbox" id="bars">
+    <label for="bars" class="icons">
+        <i class="fa-solid fa-bars bar "></i>
+        <i class="fa-solid fa-xmark cross hide"></i>
+        
+    </label>
+
+    <header>
+        <span>           
+            <div class="dropdown element">
+                <div class="dropdown-button button">Tools</div>
+                <div class="dropdown-content">
+                    <a href="#">option 1</a>
+                    <a href="#">option 2</a>
+                    <a href="#">option 3</a>
+                    <a href="#">option 4</a>
+                    <a href="#">option 5</a>
+                </div>
+            </div>
+            <a href="#" class="button element">Contact</a>
+            <a href="#" class="button element">Login</a>
+            <a href="#" class="button element">Sign up</a>
+        </span>
+        
+    </header>
+
+
+
+    <div class="main">
+        <div class="title">
+            
+            
+
+            <div class="container">
+                <h6 class="p1"><b>Tax</b> Sharthi</h6>
+            </div>
+            <br>
+            <div class="container">
+                <p class="p2">Optimizer Your Own Tax</p>
+            </div>
+            
+        </div>
+
+        <div class="menu">       
+            <div class="option1">
+                <label for="btn1">
+                    <div class="option btn1">
+                        <h2>Abouts</h2>
+                    </div>
+                </label>
+                <input type="checkbox" checked id="btn1">
+
+                <label for="btn2">
+                    <div class="option btn2">
+                        <h2>Benefits</h2>
+                    </div>
+                </label>
+                <input type="checkbox" checked id="btn2">
+                   
+            </div>    
+
+            
+            
+            <div class="content">
+
+                <!-- ----------------------------- -->
+                <div class="info hide">
+                    <ul>
+                        <li class="infoLi"> 
+                            <label for="info1">
+                                <div class="icon"><div></div></div>
+                                <h4>What is Saving & Planning Optimizer?</h4>
+                            </label>
+                            <input type="checkbox" id="info1" checked>
+                            <div class="hide para">Tax Planning Optimizer is an effective tool that helps you maximize your tax savings. You 
+                                can plan your investments and save taxes using recommendations provided by the tool.  
+                                For instance, if you are still determining the most suitable tax regime, it will suggest the 
+                                most tax-effective tax regime based on your income and investments. This tool will also analyze 
+                                the additional deductions available to obtain tax relief and get a higher in-hand salary.
+                            </div>
+                        </li><hr>
+            
+                        <li class="infoLi">
+                            <label for="info2">
+                                <div class="icon"><div></div></div>
+                                <h4>What is the Purpose Of Using Tax Saving & Planning Optimizer?</h4>
+                            </label>
+            
+                            <input type="checkbox" id="info2"  checked>
+                            <div class="hide para">This product aims to reduce tax liability by taking advantage of all the income tax laws, provisions,
+                                 and deductions applicable to your situation.
+                            </div>
+                        </li><hr>
+            
+                        <li class="infoLi">
+                            <label for="info3">
+                                <div class="icon"><div></div></div>
+                                <h4>How Does Tax Saving & Planning Optimizer Work?</h4>
+                            </label>
+                            <input type="checkbox" id="info3" checked>
+                            <div class="hide para">The tool understands your tax situation by asking simple question regarding your income, savings, insurrence premium amount etc.Later it analyses 
+                                all the income tax rules applicable to your case that can help you save maximum taxes. The tools does the following -<br/>
+                                <ul>
+                                    <li><b >Income Tax Caculator :</b><p style="display: inline;"> Suggest a sutable tax regime and provide all the tax calculations so you can know how much to pay.</p></li><br>
+                                    <li><b>Tax investments Options : </b>
+                                        <p style="display: inline;">Shares numerous options of tax saving instruments in detail that helps you in making a smart decion.
+                                            <br><br>
+                                            Is your tax situation a little complicated, and don't know which tax-saving investment option to choose? Worry Not! 
+                                            <a href="/#">Book a Tax Consultation</a>
+                                             and get all your tax-related problems answered.
+                                        </p>
+                                    </li><br>
+                                    <li>
+                                        <b>Savings Without Spending : </b>
+                                        <p style="display: inline;">Reduce tax burden by suggesting tax saving with no investments or tax investment optionswith the available liquidity</p>
+                                    </li>
+                                </ul> 
+                            </div>
+                        </li><hr>
+            
+                        <li class="infoLi">
+                            <label for="info4">
+                                <div class="icon"><div></div></div>
+                                <h4>What Are The Benefits Of Using A Tax Saving Tool?</h4>
+                            </label>
+                            <input type="checkbox" id="info4" checked>
+                            <div  class="hide para">
+                                <ul>
+                                    <li><p>Helps you saves taxes throughout the year.</p></li>
+                                    <li><p>Reliable, personalized,unbiased,detailed report on tax saving investements as per the income Tax Law.</p></li>
+                                    <li><p>It helps make smart decisions by suggesting all the tax-saving options available under section 80C and beyond that.</p></li>
+                                </ul>
+                            </div>
+                        </li><hr>
+            
+                        <li class="infoLi">
+                            <label for="info5">
+                                <div class="icon"><div></div></div>
+                                <h4>Who Are Eligible To Use Tax saving & Planning Optimizer Tool?</h4>
+                            </label>
+                            <input type="checkbox" id="info5" checked>
+                            <div class="hide para">All salaried employees can save their taxes using this tool regardless of how much they earn or how complicated their tax situation is.</div>
+                        </li><hr>
+            
+                        <li class="infoLi">
+                            <label for="info6">
+                                <div class="icon"><div></div></div>
+                                <h4>What helpful Information Can I receive After Fetching The Detailed Report?</h4>
+                            </label>
+                            <input type="checkbox" id="info6" checked>
+                            <div class="hide para">
+                                The datailed report is a perfect guide for details of all tax-friendly expenses/invesments.<br/>The report is divided into three parts :-
+                                <br><br>
+                                <ul>
+                                    <li><p>The first part suggest the suitable tax regime (New/Old) per your income.</p></li>
+                                    <li><p>The second part helps you make the right decision on how much money you 'can & should' invest to save tax against each penny invested! This part also suggestes the section of tax saving invesment under which you can claim the additional deduction.</p></li>
+                                    <li>The third part focuses on salary restructuring and guides you on all compponents you can add or deduct via your employer to save tax deductions.</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="option2">
+                <label for="btn3">
+                    <div class="option btn3">
+                        <h2>Faqs</h2> 
+                    </div>
+                </label>
+                <input type="checkbox" checked id="btn3">
+                
+                <label for="btn4">
+                    <div class="option btn4">
+                        <h2>Feedbacks</h2>
+                    </div>
+                </label>
+                <input type="checkbox" checked id="btn4">
+                
+            </div>
+            
+        </div>
+
+        <!-- ---------------------------------------- -->
+
+        <footer>
+
+        </footer>
+    </div>
+
+     <script src="/app.js"></script>
 </body>
 </html>
