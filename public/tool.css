@@ -3,8 +3,13 @@
     padding: 0;
 }
 
-body{  
-    overflow-x: hidden;  
+body{
+
+   
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+    
 }
 
 
@@ -137,15 +142,34 @@ body{
     border: black solid 1px;
     padding-left: 1rem;
     margin-bottom: 1rem;
+    outline: none;
+
+}
+
+.main .forms .details .input input:focus{
+    height: 2.5rem;
+    width: 70%;
+    border-radius: 0.5rem;
+    border: black solid 1px;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    outline: 2px double rgba(24, 84, 106, 0.762); 
 
 
 }
 
-.hide {
-    display: none;
+ .forms button{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: block;
+     margin-left: auto;
+      margin-right: auto;
+    background-color: rgba(37, 105, 131, 0.795);
 }
 
-
-
-
-
+ .forms button:hover{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: block;
+     margin-left: auto;
+      margin-right: auto;
+    background-color: rgba(18, 62, 78, 0.871);
+}

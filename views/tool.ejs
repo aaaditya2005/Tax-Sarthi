@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/tool.css">
-    <script src="/age.js"></script>     
+    <link rel="stylesheet" href="/tool.css">    
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 
@@ -20,9 +19,11 @@
     <div class="shadow"></div>
 
     <div class="main">
-        <header>
-            <h1>WELCOME <span><%=user.name%></span></h1>
+        <header class="text-4xl flex-col font-bold">
+            <h1>WELCOME <span><%= user.name %></span></h1>
+            <h2 class="text-sm mt-2">Please! Fill all deatils to optimize your tax saving and get suggestions</h2>
         </header>
+<<<<<<< HEAD
         <div class="forms">
             <!-- <div class="names">
 
@@ -36,105 +37,173 @@
                 <input type="checkbox" id="check2">
             </div> -->
             <form action="">
+=======
+        <div class="forms ">
+            <form action="/tool/<%= user.email %>" method="post">
+                <!-- Income Details Section -->
+>>>>>>> f44a9903dc7aca58012f1f8724ca1ce9b4f7d601
                 <div class="income_details details">
-                    <h2>Income Details</h2>
+                    <h2 class="text-2xl font-bold">Income Details</h2>
                     <span class="input">
-                        <!-- <h5>Income from Salary</h5> -->
-                        <input type="number" placeholder="Income from Salary">
+                        <input type="number" placeholder="Basic Salary" name="salary">
                     </span>
                     <span class="input">
-                        <!-- <h5>Business Income</h5> -->
-                        <input type="number" placeholder="Business Income">
+                        <input type="number" placeholder="Business Income" name="business_income">
                     </span>
                     <span class="input">
-                        <!-- <h5>Rental Income</h5> -->
-                        <input type="number" placeholder="Rental Income">
+                        <input type="number" placeholder="Rental Income" name="rental_income">
                     </span>
                     <span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Income from other Resources">
+                        <input type="number" placeholder="Income from other Resources" name="other_income">
                     </span>
                     <span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Saving Acc. Interest">
-                    </span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Capital Gains Income">
+                        <input type="number" placeholder="Saving Acc. Interest" name="saving_interest">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Capital Gains Income" name="capital_gains">
                     </span>
                 </div>
-
+        
+                <!-- Deduction Section -->
                 <div class="deduction details">
-                    <h2>Deduction</h2>
+                    <h2 class="text-2xl font-bold">Type ammount in Deduction & Exemptions box</h2>
                     <span class="input">
-                        <!-- <h5>Income from Salary</h5> -->
-                        <input type="number" placeholder="House Rent Allowance (HRA)">
-                    </span>
-                    <span class="input">
-                        <!-- <h5>Business Income</h5> -->
-                        <input type="number" placeholder="Leave Travel Allowance (LTA)">
+                        <input type="number" placeholder="House Rent Allowance (HRA)" name="hra">
                     </span>
                     <span class="input">
-                        <!-- <h5>Rental Income</h5> -->
-                        <input type="number" placeholder="Children Education Allowance (CEA)">
+                        <input type="number" placeholder="Leave Travel Allowance (LTA)" name="lta">
                     </span>
                     <span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Transport Allowance (TA)">
+                        <input type="number" placeholder="Children Education Allowance (CEA)" name="cea">
                     </span>
                     <span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Saving Acc. Interest">
-                    </span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Professional Pursuit Allowance">
+                        <input type="number" placeholder="Transport Allowance (TA)" name="ta">
                     </span>
-                    </span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
+                    <span class="input">
+                        <input type="number" placeholder="Saving Acc. Interest" name="saving_interest_deductions">
                     </span>
-
-                    </span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
+                    <span class="input">
+                        <input type="number" placeholder="Professional Pursuit Allowance" name="professional_allowance">
                     </span>
-                    </span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
+                    <span class="input">
+                        <input type="number" placeholder="Uniform Allowance" name="uniform_allowance">
                     </span>
-                    </span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
-                    </span></span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
-                    </span></span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
-                    </span></span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
-                    </span></span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
-                    </span></span><span class="input">
-                        <!-- <h3>Income from other Resources</h3> -->
-                        <input type="number" placeholder="Uniform Allowance">
+                    <div class="ml-7 text-center font-bold">*Section 80C Sub-Deductions</div>
+                    <span class="input">
+                        <input type="number" placeholder="Life Insurance Premimum(LIP)..." name="lip">
                     </span>
+                    <span class="input">
+                        <input type="number" placeholder="Employee provident fund(EPF)..." name="epf">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Public provident fund(EPF)..." name="ppf">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="National Savings Certificate(NSC)..." name="nsc">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Sukanya Samriddhi Yojna(SSY)..." name="ssy">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="5-Year FDs..." name="fd">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Equity Linked Saving scheme(ELSS)..." name="elss">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="National Pension System(NPS)..." name="NPS">
+                    </span>
+                    <div class="ml-7 text-center font-bold">other sections</div>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80D Medical Insurance..." name="medical">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80DD Medical Treatment for Dependent with Disability..." name="medicaldisability">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80DDB Special Diseases..." name="specialdiseases">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80E Interest on Education loan..." name="eduloan">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80EE Interest on Home loan..." name="homeloan">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80EEA First Time Home Buyers..." name="firsthome">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80EEB Loan For Electric vechil..." name="ev">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80G Donations..." name="donations">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Section 80GG House Rent Paid..." name="donations">
+                    </span>
+                    <div class="input">
+                        <input type="number" placeholder="Section 80TTA Donations..." name="donations">
+                    </div>
+                    <div class="input">
+                        <input type="number" placeholder="Section 80U: Disability for Individuals" name="disability_individuals">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 80GGA: Donations for Scientific Research or Rural Development" name="donations_scientific_rural_development">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 80GGB: Donations by Indian Companies to Political Parties" name="donations_companies_political_parties">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 80GGC: Donations by Individuals to Political Parties" name="donations_individuals_political_parties">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 32: Depreciation on Assets" name="depreciation_assets">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 35: Expenditure on Scientific Research" name="expenditure_scientific_research">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 80JJAA: Deduction for New Employment" name="deduction_new_employment">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 44AD: Presumptive Taxation for Small Businesses" name="presumptive_taxation_small_businesses">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 44ADA: Presumptive Taxation for Professionals" name="presumptive_taxation_professionals">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 80G: Donations" name="donations_charitable_institutions">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 80IA: Infrastructure Development" name="infrastructure_development">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 36: Specific Business Expenditures" name="specific_business_expenditures">
+                    </div>
+                    
+                    <div class="input">
+                        <input type="number" placeholder="Section 37: General Business Expenditures" name="general_business_expenditures">
+                    </div>
+                    
                 </div>
-
+        
+                <!-- Submit Button -->
+                <button type="submit" class="login text-white py-2 px-4 rounded-md mt-4 p-1">Submit</button>
             </form>
         </div>
-    </div>
-    
-
- 
-    <!-- <div class="relative z-20 flex w-full">
-        <div class="text-center bg-white bg-opacity-90 px-10 py-8 rounded-lg shadow-lg">
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">WELCOME <%=user.name%></h1>
-            <a href="/home" class="text-blue-500 hover:text-blue-700 font-medium px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg shadow">Back</a>
-        </div>
         
-    </div> -->
-
+        
+    </div>
 </body>
 </html>
