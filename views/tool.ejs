@@ -19,29 +19,23 @@
     <div class="shadow"></div>
 
     <div class="main">
-        <header class="text-4xl flex-col font-bold">
+        <!-- <header class="text-4xl flex-col font-bold">
             <h1>WELCOME <span><%= user.name %></span></h1>
             <h2 class="text-sm mt-2">Please! Fill all deatils to optimize your tax saving and get suggestions</h2>
-        </header>
-<<<<<<< HEAD
-        <div class="forms">
-            <!-- <div class="names">
+        </header> -->
 
-                <label for="check1">
-                    Income details     
-                </label>
-                <input type="checkbox" id="check1">
-                <label for="check2">
-                    Deduction                   
-                </label>  
-                <input type="checkbox" id="check2">
-            </div> -->
-            <form action="">
-=======
+        <header>
+            <div class="container">
+                <h1>WELCOME <span><%= user.name %></span></h1>
+            </div>
+            <div class="container">
+                <h2>Please! Fill all deatils to optimize your tax saving and get suggestions</h2>
+            </div>
+        </header>
+
         <div class="forms ">
             <form action="/tool/<%= user.email %>" method="post">
                 <!-- Income Details Section -->
->>>>>>> f44a9903dc7aca58012f1f8724ca1ce9b4f7d601
                 <div class="income_details details">
                     <h2 class="text-2xl font-bold">Income Details</h2>
                     <span class="input">
