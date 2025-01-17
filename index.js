@@ -40,7 +40,7 @@ app.post("/signup", async (req, res) => {
             });
 
             const token = jwt.sign({ email: Createduser.email, userid: Createduser.id }, process.env.JWT_SECRET_KEY, {
-                expiresIn: '1h'
+                expiresIn: '5h'
             });
 
             res.cookie('token', token, { httpOnly: true });
@@ -81,10 +81,14 @@ app.get("/logout",(req,res)=>{
 })
 
 app.get("/tool",isloggedin,async(req,res)=>{
+    
     let user = await userModel.findOne({email:req.user.email});
     res.render("tool.ejs",{user,calculateAge})
 })
 
+app.post("/tool",(req,res)=>{
+    
+})
 
 function calculateAge(dob) {
     const today = new Date();
