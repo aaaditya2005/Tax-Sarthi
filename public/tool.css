@@ -3,9 +3,18 @@
     padding: 0;
 }
 
+body{
+
+   
+    overflow-x: hidden;
+    
+    
+    
+}
+
 
 .bg img{
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     position: absolute;
     top: 0;
@@ -16,17 +25,24 @@
 }
 
 .shadow {
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     z-index: -5;
     background-color: rgba(0, 0, 0,0.3);
     position: absolute;
+    /* overflow-y: scroll; */
+    overflow-x: hidden; 
+
 }
 
 .main {
     /* background-color: white; */
     z-index: 20;
-    background-color: rgba(255, 255, 255,0.7);
+    /* background-color: rgba(255, 255, 255,0.7); */
+    /* overflow: scroll; */
+    /* overflow-y: hidden; */
+    overflow-x: hidden; 
+
 }
 
 
@@ -42,29 +58,87 @@
 
 .main .forms {
     background-color: white;
-    /* padding-top: 2rem; */
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
     width: 80vw;
+    height: 70vh;
     justify-self: center;
-    border: black solid 2px;
+    border: black solid 1px;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 30px black;
+    overflow: scroll;
+    overflow-x: hidden; 
+
+
 }
 
-.main .forms .names {
+/* .main .forms .names {
     width: 100%;
     display: flex;
+    
     justify-content: space-evenly;
-    padding: 1rem;
+    align-items: center;
+    height: 3rem;
+    
     background-color: white;
-}
+    font-size: 1.3rem;
+    font-family: "Montserrat", serif;
+} */
+
+/* .main .forms .names label:hover{
+    
+    font-weight: 500;
+   
+} */
 
 
 
-.main .forms .names a{
+
+
+
+
+
+/* .main .forms .names a{
     text-decoration: none;
     font-size: 1.5rem;
     font-family: "Montserrat", serif;
     font-weight: 400;
-}
+} */
 
 .main header span {
     color: rgb(31,90,111);
+}
+
+/* ---------------------------------------- */
+
+
+.main .forms .details{
+    display: grid;
+    /* justify-content: center; */
+    margin-top: 2rem;
+}
+
+.main .forms .details .input{
+    display: flex;
+    justify-content: center;
+}
+
+.main .forms .details h2 {
+    height: 2.5rem;
+    text-align: center;
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+}
+
+
+
+.main .forms .details .input input{
+    height: 2.5rem;
+    width: 70%;
+    border-radius: 0.5rem;
+    border: black solid 1px;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+
+
 }
