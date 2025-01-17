@@ -1,11 +1,70 @@
-.header h1{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-.header a{
-    background-color: rgba(31, 90, 111, 0.795);
-}
-.header a :hover{
-    background-color: rgba(18, 62, 78, 0.871);
 
+.bg img{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10; 
+    overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+.shadow {
+    height: 100vh;
+    width: 100vw;
+    z-index: -5;
+    background-color: rgba(0, 0, 0,0.3);
+    position: absolute;
+}
+
+.main {
+    /* background-color: white; */
+    z-index: 20;
+    background-color: rgba(255, 255, 255,0.7);
+}
+
+
+.main header {
+    height: 8rem;
+    /* background-color: rgba(124,135,137,0.5); */
+    /* background-color: rgba(255, 255, 255,0.8); */
+    font-family: "Montserrat", serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .forms {
+    background-color: white;
+    /* padding-top: 2rem; */
+    width: 80vw;
+    justify-self: center;
+    border: black solid 2px;
+}
+
+.main .forms .names {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    background-color: white;
+}
+
+
+
+.main .forms .names a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+}
+
+.main header span {
+    color: rgb(31,90,111);
 }

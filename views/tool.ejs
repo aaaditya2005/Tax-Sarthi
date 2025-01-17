@@ -4,31 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tool.css">
     <script src="/age.js"></script>     
 </head>
-<body class="overflow-hidden bg-gray-100">
+<body>
 
-    <div class="absolute inset-0 z-0">
-        <img src="./images/taxpic5.jpg" alt="Background Image" class="w-full h-full object-cover filter blur-sm">
+    <div class="bg">
+        <img src="./images/taxpic5.jpg">
     </div>
 
+    <div class="shadow"></div>
+
+    <div class="main">
+        <header>
+            <h1>WELCOME <span><%=user.name%></span></h1>
+        </header>
+        <div class="forms">
+            <div class="names">
+                <label for="check1">
+                    <span>
+                        <a href="#">Income details</a>
+                    
+                    </span>
+                    
+                </label>
+                <input type="checkbox" id="check1">
+                <label for="check2">
+                    <span><a href="#">Deduction</a></span>
+                    
+                    
+                </label>
+                <input type="checkbox" id="check2">
+                
+                
+            </div>
+        </div>
+    </div>
     
-    <div class="absolute inset-0 z-10 bg-black opacity-20"></div>
 
  
-    <div class="relative z-20 flex  h-screen">
+    <!-- <div class="relative z-20 flex w-full">
         <div class="text-center bg-white bg-opacity-90 px-10 py-8 rounded-lg shadow-lg">
             <h1 class="text-3xl font-bold text-gray-800 mb-4">WELCOME <%=user.name%></h1>
             <a href="/home" class="text-blue-500 hover:text-blue-700 font-medium px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg shadow">Back</a>
         </div>
-        <div>
-            <form action="">
-                
-            </form>
-        </div>
-    </div>
+        
+    </div> -->
 
 </body>
 </html>
