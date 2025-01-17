@@ -82,8 +82,22 @@ app.get("/logout",(req,res)=>{
 
 app.get("/tool",isloggedin,async(req,res)=>{
     let user = await userModel.findOne({email:req.user.email});
-    res.render("tool.ejs",{user})
+    res.render("tool.ejs",{user,calculateAge})
 })
+
+
+function calculateAge(dob) {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+  
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+  
+    return age;
+  }
 
 function isloggedin(req, res, next) {   
     if (!req.cookies.token) {
