@@ -30,7 +30,7 @@ body::-webkit-scrollbar {
 /* -------------------------------------------- */
 
 
-@media(min-width : 891px){
+@media(min-width : 891.001px){
     header {
         height: 4rem;
         /* background-color: rgba(31,90,111,0.5); */
@@ -103,7 +103,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 /* ------------------------------------------------------- */
-@media(max-width : 890px) {
+@media(max-width : 890.999px) {
     header{
         /* background-color: rgba(183,197,198,0.8); */
         background-color: rgba(31,90,111,0.8);
