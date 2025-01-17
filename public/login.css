@@ -1,0 +1,22 @@
+.login{
+    background-color: rgba(31, 90, 111, 0.795);
+}
+
+.login:hover{
+    background-color: rgba(18, 62, 78, 0.871);
+}
+
+.signupbutton{
+    font-family:'Lucida Sans';
+    font-weight: bold;
+    font-size:20px;
+    color: rgba(26, 82, 102, 0.844);
+}
+
+input:focus {
+    outline: 2px double rgba(24, 84, 106, 0.762); 
+}
+.form{
+    box-shadow: 1px 1px 15px 3px black;
+}    
+

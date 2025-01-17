@@ -65,7 +65,7 @@ body::-webkit-scrollbar {
         display: flex;
         flex-direction: column;
         position: absolute;
-        background-color: rgba(31,90,111,0.5);
+        background-color: rgba(255, 255, 255, 0.5);
         border-radius: 1rem;
         /* padding: 0 0 0 1rem; */
         z-index: 5;
@@ -85,9 +85,8 @@ body::-webkit-scrollbar {
     }
 
     .dropdown-content a:hover {
-        background-color: rgba(31,90,111,0.6);
-        font-weight: 700;
-        border: rgba(31,90,111,0.6) solid 2px;
+        background-color: rgba(36, 104, 129, 0.6);
+        border: rgba(31,90,111,0.6) solid 1.5px;
     } 
     
     .dropdown:hover .dropdown-content{
@@ -135,8 +134,7 @@ body::-webkit-scrollbar {
         color: black;
         font-weight: 500;
         font-size: 1.2rem;
-        /* text-decoration: underline; */
-        /* border-bottom: rgb(31,90,111) solid 1px; */
+        
         border-radius: 0.5rem;
     }
 
@@ -150,9 +148,6 @@ body::-webkit-scrollbar {
         text-decoration: underline;
     }
 
-    /* .dropdown{
-        border-bottom: black solid 1px;
-    } */
 
     .dropdown-content a{
         height: 1.8rem;
@@ -193,7 +188,6 @@ body::-webkit-scrollbar {
         font-size: 1.5rem;
         /* background-color: rgba(31,90,111,0.9); */
         padding: 5px 9px;
-        /* clip-path: polygon(0 50%,25% 100%, 75% 100%,100% 50%,75% 0,25% 0); */
     }
 
     .icons:hover i{
@@ -204,133 +198,9 @@ body::-webkit-scrollbar {
         margin-top: 2rem;
     }    
     
-    /* .dropdown-content {
-        display: flex;
-        flex-direction: column;
-    } */
 
 }
 
-
-/* --------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -------------------------------------------------- */
-
-/* header{
-    width: 100vw;
-    height: 4rem;
-    position: relative;
-    display: flex;
-    padding-top: 0.5rem;
-}
-
-header span {
-    position: absolute;
-    right: 1rem;
-    display: flex;
-    padding: 1rem 0 0 0;
-}
-
-header span .button {
-    margin: 0 1.6rem;
-    transform: scale(1.4);
-    font-weight: 500;
-    text-decoration: none;
-    color: rgba(31,90,111,255);
-    font-family: "Montserrat", serif;
-    cursor: pointer;
-
-}
-
-header span .button:hover{
-    text-decoration: underline;
-} */
-
-
-
-
-
-/* ----------nav bar------------------------------ */
-/* @media(min-width : 891px) and (max-width : 1000px){
-    header span .button {
-        transform: scale(1.1);
-        margin: 0 1rem;
-    }
-    
-} */
-
-
- /* -------------------------------------------- */
-
-/* ------------------------------------------ */
-
-/* .dropdown-content {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    background-color: rgba(31,90,111,0.5);
-    width: 12rem;
-    border-radius: 0.5rem;
-    border: rgb(31,90,111) solid 1px;
-    display: none;
-    z-index: 1;
-}
-
-.dropdown-content a{
-    text-decoration: none;
-    color: black;
-    font-size: 1.1rem;
-    font-family: "Montserrat", serif;
-    font-weight: 500;
-    height: 3rem;
-    padding: 0rem 1rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-
-.dropdown-button {
-    font-size: 1.4rem;
-    position: relative;
-    bottom: 0.35rem;
-    left: 0.9rem;
-    padding: 0.2rem 1rem;
-    border-radius: 1rem;
-
-}
-
-.dropdown:hover .dropdown-button{
-    background-color: rgba(31,90,111,0.4);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: rgba(31,90,111,0.6);
-    font-weight: 700;
-} */
 
 
     
@@ -567,9 +437,4 @@ header span .button:hover{
     margin-top: 1rem;
     
  }
-
-
-
-
-
 

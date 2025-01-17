@@ -1,0 +1,568 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+    /* background-image: url(./assets/taxpic4.jpg);
+    background-size: cover; */
+}
+.hide {
+    display: none;
+}
+body::-webkit-scrollbar {
+    display: none; 
+  }
+
+.bg img{
+    height: 108.5vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;  
+}
+
+
+
+/* -------------------------------------------- */
+
+
+@media(min-width : 891px){
+    header {
+        height: 4rem;
+        /* background-color: rgba(31,90,111,0.5); */
+        z-index: 1;
+        
+        
+    }
+
+    header span {
+        /* padding-top: 1.5rem; */
+        font-size: 1.4rem;
+        font-weight: 500;
+        float: right;
+        display: flex;
+        font-family: "Montserrat", serif;
+        padding: 1.2rem 2rem 0;       
+    }
+
+    header span .button {
+        text-decoration: none;
+        padding: 0 1rem;
+        color: rgb(31,90,111);
+
+    }
+
+    header span .button:hover{
+        text-decoration: underline;
+    }
+    
+
+    header span .dropdown .dropdown-content {
+        width: 12rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 1rem;
+        /* padding: 0 0 0 1rem; */
+        z-index: 5;
+        display: none;
+    }
+
+    header span .dropdown .dropdown-content a{
+        text-decoration: none;
+        font-size: 1.1rem;
+        color: black;
+        /* width: 100%; */
+        padding: 0.8rem 0  0 1rem;
+        height: 2rem;
+        border-radius: 1rem;
+        
+        
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgba(36, 104, 129, 0.6);
+        border: rgba(31,90,111,0.6) solid 1.5px;
+    }
+    
+    .dropdown:hover .dropdown-content{
+        display: flex;
+    }
+
+    .icons {
+        display: none;
+    }
+}
+
+#bars {
+    display: none;
+}
+/* ------------------------------------------------------- */
+@media(max-width : 890px) {
+    header{
+        /* background-color: rgba(183,197,198,0.8); */
+        background-color: rgba(31,90,111,0.8);
+        font-family: "Montserrat", serif;
+        position: absolute;
+        top:0;
+        z-index: 10;
+        top: -60rem;   
+        transition: ease-out;
+        transition-duration: 0.1s;
+    }
+    
+    #bars:checked ~ header{
+        top:0;
+    }
+
+    header a{
+        text-decoration: none;
+    }
+
+    header span .element{
+        width: 100vw;
+        text-align: center;
+    }
+
+    .button {
+        height: 2rem;
+        padding-top: 0.6rem;
+        color: black;
+        font-weight: 500;
+        font-size: 1.2rem;
+        /* text-decoration: underline; */
+        /* border-bottom: rgb(31,90,111) solid 1px; */
+        border-radius: 0.5rem;
+    }
+
+    .button:hover {
+        background-color: rgb(31,90,111);
+        text-decoration: underline;
+    }
+
+    .dropdown:hover .dropdown-button{
+        background-color: rgb(31,90,111);
+        text-decoration: underline;
+    }
+
+    /* .dropdown{
+        border-bottom: black solid 1px;
+    } */
+
+    .dropdown-content a{
+        height: 1.8rem;
+        color: black;
+        padding-top: 0.5rem;
+        /* border-bottom: rgb(31,90,111) solid 1px; */
+        border-radius: 0.5rem;
+    }
+
+    .dropdown-content a:hover{
+        /* border: solid rgb(31,90,111) 2px; */
+        background-color: rgba(31,90,111,0.6);
+        font-weight: 700;
+        border: rgba(31,90,111,0.9) solid 1px;
+    }
+     
+    header span {
+        display: grid;
+        justify-content: center;
+        width: 100vw;
+    }
+
+    header span .dropdown .dropdown-content{
+        display: grid;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display: grid;
+    }
+
+    .icons{
+        /* float: right; */
+        position: absolute;
+        top: 0.7rem;
+        right: 1rem;
+        z-index: 15;
+        font-size: 1.5rem;
+        /* background-color: rgba(31,90,111,0.9); */
+        padding: 5px 9px;
+        /* clip-path: polygon(0 50%,25% 100%, 75% 100%,100% 50%,75% 0,25% 0); */
+    }
+
+    .icons:hover i{
+        transform: scale(1.2);
+    }
+
+    .main{
+        margin-top: 2rem;
+    }    
+    
+    /* .dropdown-content {
+        display: flex;
+        flex-direction: column;
+    } */
+
+}
+
+
+/* --------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------- */
+
+/* header{
+    width: 100vw;
+    height: 4rem;
+    position: relative;
+    display: flex;
+    padding-top: 0.5rem;
+}
+
+header span {
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    padding: 1rem 0 0 0;
+}
+
+header span .button {
+    margin: 0 1.6rem;
+    transform: scale(1.4);
+    font-weight: 500;
+    text-decoration: none;
+    color: rgba(31,90,111,255);
+    font-family: "Montserrat", serif;
+    cursor: pointer;
+
+}
+
+header span .button:hover{
+    text-decoration: underline;
+} */
+
+
+
+
+
+/* ----------nav bar------------------------------ */
+/* @media(min-width : 891px) and (max-width : 1000px){
+    header span .button {
+        transform: scale(1.1);
+        margin: 0 1rem;
+    }
+    
+} */
+
+
+ /* -------------------------------------------- */
+
+/* ------------------------------------------ */
+
+/* .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgba(31,90,111,0.5);
+    width: 12rem;
+    border-radius: 0.5rem;
+    border: rgb(31,90,111) solid 1px;
+    display: none;
+    z-index: 1;
+}
+
+.dropdown-content a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    height: 3rem;
+    padding: 0rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.dropdown-button {
+    font-size: 1.4rem;
+    position: relative;
+    bottom: 0.35rem;
+    left: 0.9rem;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+
+}
+
+.dropdown:hover .dropdown-button{
+    background-color: rgba(31,90,111,0.4);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(31,90,111,0.6);
+    font-weight: 700;
+} */
+
+
+    
+/* ----------------------------------------- */
+
+.main .title {
+    position: relative;
+    /* height: 15rem; */
+    margin:0rem 0 4.9rem 2rem;
+    padding-left: 1rem;
+    border-left: rgba(31,90,111,255) solid 0.5rem;
+}
+
+
+
+/* .main .title h1{
+    font-size: 4rem;
+    font-family: "Montserrat", serif;
+    
+} */
+
+/* .main .title h6{
+    font-size: 3rem;
+    font-weight: 200;
+    font-family: "Montserrat", serif;
+} */
+
+/* .main .title  p {
+    margin-left: 5px;
+    font-size: 1.2rem;
+    font-family: "Montserrat", serif;
+} */
+
+/* .main .title .container p {
+    margin-left: 5px;
+    font-size: 1.2rem;
+    font-family: "Montserrat", serif;
+} */
+
+.main .title .container{
+    display: inline-block;
+}
+
+.main .title .container h6{
+    font-size: 4rem;
+    font-weight: 200;
+    font-family: "Montserrat", serif;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 1.5s steps(30,end) forwards ;  /* ,blink 0.5s step-end 20 */
+    padding-right: 0.5rem;
+
+}
+
+.main .title .container p{
+    margin-left: 5px;
+    font-size: 1.1rem;
+    font-family: "Montserrat", serif;
+
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2.5s steps(40,end) 2s forwards;  /*,blink 0.5s step-end 20*/
+}
+
+
+
+@keyframes typing {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+        border-right: none;
+    }
+}
+
+/* @keyframes blink {
+    50%{
+        border-right-color: transparent;
+    }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------ */
+
+.menu {
+    margin: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    column-gap: 0.5rem;
+}
+.menu .option{
+    height: 8rem;
+    width: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: white solid 2px; */
+    /* border-radius: 1rem; */
+    margin-bottom: 1rem;
+    background-color: rgba(31,90,111,0.8);
+    clip-path: polygon(0% 50%,25% 100%,75% 100%,100% 50%,75% 0%,25% 0%);
+    font-family: "Roboto Slab", serif;
+
+}
+
+.main .option1{
+    grid-column: 1/2;
+}
+.main .option2{
+    grid-column: 6/7;
+}
+
+.main .option1 input {
+    display: none;
+}
+
+.main .option2 input {
+    display: none;
+}
+
+.main .content{
+    grid-column: 2/6;
+    /* background-color: rgba(255, 255, 255,0.8); */
+    border-radius: 1rem;
+    padding: 1rem 2rem 1rem 1rem;
+    height: 60vh;
+    overflow:scroll;
+    font-family: "Roboto Slab", serif;
+    overflow-x: hidden;
+
+}
+
+.main .content::-webkit-scrollbar {
+    display: none; 
+}
+
+.main .option:hover{
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px rgba(31,90,111,255);
+}
+
+
+/* --------------------------------- */
+
+/* ---------------------------- */
+
+.info {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(171,197,205,0.7);
+    font-family: "Montserrat", serif;
+    /* color: rgba(31,90,111,255); */
+
+}
+
+.info ul li input{
+    display: none;
+}
+
+.info ul{
+    list-style-type:none;
+}
+
+.info ul li label {
+    display: flex;
+    align-items: center;
+    margin: 0 0;
+}
+
+.info ul li .icon {
+    height: 1rem;
+    width: 1rem;
+    border: rgba(31,90,111,255) solid 3px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-left: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info ul li .icon div{
+    height: 9px;
+    width: 9px;
+    background-color: rgba(31,90,111,255);
+    border-radius: 50%;
+}
+
+
+.info ul li .para {
+    padding: 0.8rem 0 0 2rem;
+    border-left: rgba(31,90,111,255) solid 2px;
+    margin-top: 1rem;
+    position: relative;
+    left: 15px;
+
+}
+
+.info ul hr{
+    margin: 2rem;
+    color: rgba(31,90,111,255);
+}
+
+.info ul li h4{
+    padding-top: 14px;
+    color: rgba(31,90,111,255);
+    
+ }
+ 
+
+ 
+
+ /* ------------------------------------- */
+
+ footer{
+    height: 11rem;
+    width: 100vw;
+    background-color: rgba(31,90,111,0.8);
+    margin-top: 1rem;
+    
+ }

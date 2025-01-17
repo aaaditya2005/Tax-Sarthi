@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/signup.css">
+    <script src="/icontoggle.js"></script>    
+</head>
+<body class="overflow-hidden bg-gray-100">
+
+    <div class="absolute inset-0 z-0">
+        <img src="./images/taxpic5.jpg" alt="Background Image" class="w-full h-full object-cover filter blur-md">
+    </div>
+
+    <div class="absolute inset-0 z-10 bg-black opacity-50"></div>
+
+    <div class="relative z-20 flex items-center justify-center h-screen">
+        <div class="form bg-white bg-opacity-80 p-8 rounded-lg max-w-sm w-full text-center">
+            <a href="/" class="mb-7 text-green-800">⬅️Home</a>
+            <h1 class="text-2xl text-black mb-6">👤Create Your Account</h1>
+            <form action="/signup" method="post" class="flex flex-col gap-4">
+                <input class="bg-white p-3 border rounded-md     text-black placeholder-black" type="text" placeholder="Enter Name..." name="name">
+                <input class="bg-white p-3 border rounded-md     text-black placeholder-black" type="text" placeholder="Enter email..." name="email">
+                <input class="bg-white p-3 border rounded-md     text-black placeholder-black" type="text" placeholder="dd/mm/yyyy" name="dob">
+                <div class="relative">
+                    <input id="password" class="bg-white p-3 border rounded-md text-black placeholder-black w-full pr-10" type="password" placeholder="Enter password..." name="password">
+                    <button type="button" onclick="togglePassword()" class="absolute top-1/2 right-3 transform -translate-y-1/2">
+                        <img id="eye-icon" src="https://img.icons8.com/ios/452/invisible.png" alt="Eye Icon" class="w-6 h-6 text-black cursor-pointer">
+                    </button>
+                </div>
+                <button class="signup text-white py-2 px-4 rounded-md mt-4">Create</button>
+                <div class="flex">
+                    <h1>Already User?</h1>
+                    <a href="/login" class="loginbutton ml-2 ">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
