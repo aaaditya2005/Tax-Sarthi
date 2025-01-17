@@ -3,14 +3,11 @@
     padding: 0;
 }
 
-body{
-
-   
-    overflow-x: hidden;
-    
-    
-    
+body{  
+    overflow-x: hidden;  
 }
+
+
 
 
 .bg img{
@@ -57,7 +54,8 @@ body{
 }
 
 .main .forms {
-    background-color: white;
+    background-color: rgba(255, 255, 255,1);
+    padding-top: 1rem;
     padding-bottom: 4rem;
     margin-bottom: 4rem;
     width: 80vw;
@@ -72,7 +70,7 @@ body{
 
 }
 
-/* .main .forms .names {
+.main .forms .names {
     width: 100%;
     display: flex;
     
@@ -83,13 +81,13 @@ body{
     background-color: white;
     font-size: 1.3rem;
     font-family: "Montserrat", serif;
-} */
+}
 
-/* .main .forms .names label:hover{
+.main .forms .names label:hover{
     
     font-weight: 500;
    
-} */
+}
 
 
 
@@ -98,12 +96,12 @@ body{
 
 
 
-/* .main .forms .names a{
+.main .forms .names a{
     text-decoration: none;
     font-size: 1.5rem;
     font-family: "Montserrat", serif;
     font-weight: 400;
-} */
+}
 
 .main header span {
     color: rgb(31,90,111);
@@ -142,3 +140,12 @@ body{
 
 
 }
+
+.hide {
+    display: none;
+}
+
+
+
+
+
