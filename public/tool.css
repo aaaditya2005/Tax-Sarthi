@@ -7,7 +7,7 @@ body{
 
    
     overflow-x: hidden;
-    overflow-y: hidden;
+     overflow-y: hidden;
     
     
 }
@@ -119,29 +119,67 @@ body{
     box-shadow: 5px 5px 30px black;
     overflow: scroll;
     overflow-x: hidden; 
-
-
 }
+
+
+
+
+
+/* @media(max-width : 1140px){
+    .main .forms .names {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .main .forms .names label span {
+        padding: 0.5rem 0 0.5rem 0;
+        width: 100%;
+        text-align: center;
+        border-radius: 0.5rem;
+    }
+
+    .main .forms .names label span:hover {
+        border: rgb(31,90,111) solid 2.5px;
+        color: rgb(31,90,111) ;
+        
+    }
+} */
 
 .main .forms .names {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     
     justify-content: space-evenly;
     align-items: center;
     height: 3rem;
     
     background-color: white;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     font-family: "Montserrat", serif;
 }
 
-.main .forms .names label:hover{
-    
-    font-weight: 500;
-   
+.main .forms .names label{
+    padding: 0.5rem 0.9rem ;
+    border-radius: 0.5rem;
 }
 
+.main .forms .names label:hover {
+    border: rgb(31,90,111) solid 1px;
+}
+
+.main .forms form .hide {
+    display: none;
+}
+
+.main .forms .names input {
+    display: none;
+}
+
+/* .main .forms .names #check1:checked .main .forms .names .check1 {
+    background-color: rgba(31,90,111,0.6);
+} */
 
 
 
@@ -149,12 +187,13 @@ body{
 
 
 
-.main .forms .names a{
+
+/* .main .forms .names a{
     text-decoration: none;
     font-size: 1.5rem;
     font-family: "Montserrat", serif;
     font-weight: 400;
-}
+} */
 
 .main header span {
     color: rgb(31,90,111);
@@ -220,4 +259,23 @@ body{
      margin-left: auto;
       margin-right: auto;
     background-color: rgba(18, 62, 78, 0.871);
+}
+
+
+/* ----------------------------------------- */
+.deduction .inner_check {
+    width: 100%;
+    background-color: yellow;
+    font-size: 1.2rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    /* padding-inline: ; */
+}
+
+.deduction .inner_check span{
+    width: 100%;
+    text-align: center;
+    height: 2.5rem;
+    padding-top: 0.3rem;
 }

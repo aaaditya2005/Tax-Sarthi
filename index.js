@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+app.use(express.json());
 const port = 8080;
 app.set("views", path.join(__dirname,"/views"));
 app.use(express.static(path.join(__dirname,"public")));
@@ -62,7 +63,7 @@ app.post("/login", async (req, res) => {
 
     bcrypt.compare(password, user.password, (err, result) => {
         if (result) {
-            let token = jwt.sign({ email, userid: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+            let token = jwt.sign({ email, userid: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: '5h' });
             res.cookie("token", token, { httpOnly: true });
             res.render("home.ejs");
         } else {
@@ -81,14 +82,19 @@ app.get("/logout",(req,res)=>{
 })
 
 app.get("/tool",isloggedin,async(req,res)=>{
-    
+
     let user = await userModel.findOne({email:req.user.email});
     res.render("tool.ejs",{user,calculateAge})
 })
 
-app.post("/tool",(req,res)=>{
-    
-})
+app.post('/tool/:email', isloggedin, async (req, res) => {
+    let user = await userModel.findOne({ email: req.user.email });
+
+    console.log("Form Data:", req.body); 
+    const formData = req.body; 
+    res.render('result.ejs', { user, formData, calculateAge });
+});
+
 
 function calculateAge(dob) {
     const today = new Date();

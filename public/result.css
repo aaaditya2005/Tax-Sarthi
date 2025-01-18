@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.bg img{
+    height: 120vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10; 
+    overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+.shadow {
+    height: 120vh;
+    width: 100vw;
+    z-index: -5;
+    background-color: rgba(0, 0, 0,0.3);
+    position: absolute;
+    overflow-x: hidden; 
+
+}
+
+.main {
+    z-index: 20;
+    overflow-x: hidden; 
+
+}
+
+
+.main header {
+    height: 8rem;
+    font-family: "Montserrat", serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .forms {
+    background-color: white;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+    width:80vw;
+    height: 70vh;
+    justify-self: center;
+    border: black solid 1px;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 30px black;
+    overflow: scroll;
+    overflow-x: hidden; 
+
+
+}

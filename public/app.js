@@ -17,13 +17,28 @@ for(infoli of info){
 
 btns[0].addEventListener("click",()=>{
     let check = btns[0].parentElement.nextElementSibling.checked;
-    let content = document.querySelector(".main .menu .content .info")
-    if(check == true){
-        content.classList.remove("hide");
-    }else{
-        content.classList.add("hide");
-    }
+    let content1 = document.querySelector(".main .menu .content .info")
+    let content2 = document.querySelector(".main .menu .content .faqs")
+    // if(check == true){
+        content1.classList.toggle("hide");
+    // }else{
+        content2.classList.toggle("hide");
+    // }
 })
+
+
+btns[2].addEventListener("click",()=>{
+    let check = btns[2].parentElement.nextElementSibling.checked;
+    let content1 = document.querySelector(".main .menu .content .info")
+    let content2 = document.querySelector(".main .menu .content .faqs")
+    // if(check == true){
+        content1.classList.toggle("hide");
+    // }else{
+        content2.classList.toggle("hide");
+    // }
+})
+
+
 
 // for(btn of btns){
     

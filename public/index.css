@@ -16,7 +16,8 @@ body::-webkit-scrollbar {
   }
 
 .bg img{
-    height: 108.5vh;
+    /* height: 108.5vh; */
+    height: 102vh;
     width: 100vw;
     position: absolute;
     top: 0;
@@ -425,18 +426,126 @@ body::-webkit-scrollbar {
     color: rgba(31,90,111,255);
     
  }
- 
 
+ /* -------adding benefits----------------- */
+ 
+ .faqs {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(171,197,205,0.7);
+    font-family: "Montserrat", serif;
+    /* color: rgba(31,90,111,255); */
+
+}
+
+.faqs ul li input{
+    display: none;
+}
+
+.faqs ul{
+    list-style-type:none;
+}
+
+.faqs ul li label {
+    display: flex;
+    align-items: center;
+    margin: 0 0;
+}
+
+.faqs ul li .icon {
+    height: 1rem;
+    width: 1rem;
+    border: rgba(31,90,111,255) solid 3px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-left: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faqs ul li .icon div{
+    height: 9px;
+    width: 9px;
+    background-color: rgba(31,90,111,255);
+    border-radius: 50%;
+}
+
+
+.faqs ul li .para {
+    padding: 0.8rem 0 0 2rem;
+    border-left: rgba(31,90,111,255) solid 2px;
+    margin-top: 1rem;
+    position: relative;
+    left: 15px;
+
+}
+
+.faqs ul hr{
+    margin: 2rem;
+    color: rgba(31,90,111,255);
+}
+
+.faqs ul li h4{
+    padding-top: 14px;
+    color: rgba(31,90,111,255);
+    
+ }
  
 
  /* ------------------------------------- */
 
  footer{
-    height: 11rem;
+    /* height: 11rem; */
     width: 100vw;
-    background-color: rgba(31,90,111,0.8);
+    background-color: rgb(31,90,111);
     margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    font-family: "Montserrat", serif;
+    font-size: 0.9rem;
+    /* justify-content: space-evenly; */
+    padding: 1rem;
+
+ 
+ }
+
+ footer a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+    transition-duration: 0.5s;
+ }
+
+ footer a:hover{
+    text-decoration: underline;
+    transform: scale(1.1);
+ }
+
+
+ footer .emails{
+    float: left;
     display: flex;
+    flex-direction: column;
+    grid-column: 1/2;
+    text-align: center;
     
  }
+
+ footer .calls {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    grid-column: 3/4;
+    text-align: center;
+ }
+
+ /* footer .icons{
+    grid-column: 2/3;
+    background-color: blue;
+    z-index: 300;
+ }
+  */
 

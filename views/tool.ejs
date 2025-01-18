@@ -23,7 +23,6 @@
             <h1>WELCOME <span><%= user.name %></span></h1>
             <h2 class="text-sm mt-2">Please! Fill all deatils to optimize your tax saving and get suggestions</h2>
         </header> -->
-
         <header>
             <div class="container">
                 <h1>WELCOME <span><%= user.name %></span></h1>
@@ -33,11 +32,27 @@
             </div>
         </header>
 
-        <div class="forms ">
+        <a href="/home" class="ml-7 bg-white-600 p-1 rounded-lg mt-2">⬅️Home</a>
+        <div class="forms p-1">
+
+            <div class="names">
+                <label for="check1" class="check1">
+                    <span>Income Details</span>
+                </label>
+                <input type="checkbox" id="check1">
+
+                <label for="check2" class="check2">
+                    <span>Deduction & Exemptions box</span>
+                </label>
+                <input type="checkbox" id="check2" checked>
+                
+            </div>
+            
             <form action="/tool/<%= user.email %>" method="post">
+                
                 <!-- Income Details Section -->
                 <div class="income_details details">
-                    <h2 class="text-2xl font-bold">Income Details</h2>
+                    <h2 class="text-2xl font-bold">Fill the Income Details</h2>
                     <span class="input">
                         <input type="number" placeholder="Basic Salary" name="salary">
                     </span>
@@ -59,7 +74,7 @@
                 </div>
         
                 <!-- Deduction Section -->
-                <div class="deduction details">
+                <div class="deduction details hide">
                     <h2 class="text-2xl font-bold">Type ammount in Deduction & Exemptions box</h2>
                     <span class="input">
                         <input type="number" placeholder="House Rent Allowance (HRA)" name="hra">
@@ -74,6 +89,9 @@
                         <input type="number" placeholder="Transport Allowance (TA)" name="ta">
                     </span>
                     <span class="input">
+                        <input type="number" placeholder="Transport Allowance for Disabled(TA)" name="tad">
+                    </span>
+                    <span class="input">
                         <input type="number" placeholder="Saving Acc. Interest" name="saving_interest_deductions">
                     </span>
                     <span class="input">
@@ -81,7 +99,7 @@
                     </span>
                     <span class="input">
                         <input type="number" placeholder="Uniform Allowance" name="uniform_allowance">
-                    </span>
+                    </span>                 
                     <div class="ml-7 text-center font-bold">*Section 80C Sub-Deductions</div>
                     <span class="input">
                         <input type="number" placeholder="Life Insurance Premimum(LIP)..." name="lip">
@@ -107,6 +125,7 @@
                     <span class="input">
                         <input type="number" placeholder="National Pension System(NPS)..." name="NPS">
                     </span>
+
                     <div class="ml-7 text-center font-bold">other sections</div>
                     <span class="input">
                         <input type="number" placeholder="Section 80D Medical Insurance..." name="medical">
@@ -133,11 +152,8 @@
                         <input type="number" placeholder="Section 80G Donations..." name="donations">
                     </span>
                     <span class="input">
-                        <input type="number" placeholder="Section 80GG House Rent Paid..." name="donations">
+                        <input type="number" placeholder="Section 80GG House Rent Paid..." name="houserent">
                     </span>
-                    <div class="input">
-                        <input type="number" placeholder="Section 80TTA Donations..." name="donations">
-                    </div>
                     <div class="input">
                         <input type="number" placeholder="Section 80U: Disability for Individuals" name="disability_individuals">
                     </div>
@@ -193,11 +209,13 @@
                 </div>
         
                 <!-- Submit Button -->
+                 
                 <button type="submit" class="login text-white py-2 px-4 rounded-md mt-4 p-1">Submit</button>
             </form>
         </div>
         
         
     </div>
+    <script src="/tools.js"></script>
 </body>
 </html>
