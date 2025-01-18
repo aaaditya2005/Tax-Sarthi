@@ -5,12 +5,12 @@
 
 body{
 
-   
     overflow-x: hidden;
      overflow-y: hidden;
-    
-    
+  
 }
+
+
 
 
 .bg img{
@@ -44,7 +44,7 @@ body{
     overflow-x: hidden; 
 
 }
-
+/* ----------------------------------------------------------------- */
 
 .main header {
     height: 8rem;
@@ -52,27 +52,83 @@ body{
     /* background-color: rgba(255, 255, 255,0.8); */
     font-family: "Montserrat", serif;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+
+.container {
+    display: inline-block;
+    display: grid;
+    justify-content: center;
+    /* text-align: center; */
+}
+
+.container h1{
+    /* display: inline-block; */
+    font-size: 2rem;
+    /* text-align: center; */
+    font-weight: 500;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(40,end) 0.2s forwards;
+
+}
+
+.container h2{
+    font-size: 1rem;
+    font-weight: 700;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(40,end) 2.5s forwards,blinking 1s 10  4.5s alternate-reverse;
+}
+
+
+@keyframes typing {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes blinking {
+    50%{
+        color: transparent;
+    }
+}
+
+
+/* --------------------------------------------- */
 .main .forms {
-    background-color: white;
+    background-color: rgba(255, 255, 255,1);
+    padding-top: 1rem;
     padding-bottom: 4rem;
     margin-bottom: 4rem;
     width: 80vw;
     height: 70vh;
     justify-self: center;
-    border: black solid 1px;
     border-radius: 0.5rem;
-    box-shadow: 5px 5px 30px black;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.503);
     overflow: scroll;
     overflow-x: hidden; 
 
 
 }
 
-/* .main .forms .names {
+.bg{
+    background-color: rgba(240, 241, 242, 0.914);
+}
+
+.main .forms::-webkit-scrollbar{
+    display: none;
+}
+
+.main .forms .names {
     width: 100%;
     display: flex;
     
@@ -83,13 +139,13 @@ body{
     background-color: white;
     font-size: 1.3rem;
     font-family: "Montserrat", serif;
-} */
+}
 
-/* .main .forms .names label:hover{
+.main .forms .names label:hover{
     
     font-weight: 500;
    
-} */
+}
 
 
 
@@ -98,12 +154,12 @@ body{
 
 
 
-/* .main .forms .names a{
+.main .forms .names a{
     text-decoration: none;
     font-size: 1.5rem;
     font-family: "Montserrat", serif;
     font-weight: 400;
-} */
+}
 
 .main header span {
     color: rgb(31,90,111);

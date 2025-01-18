@@ -12,18 +12,22 @@
 </head>
 <body>
 
-    <div class="bg">
+    <!-- <div class="bg">
         <img src="./images/taxpic5.jpg">
-    </div>
+    </div> -->
 
-    <div class="shadow"></div>
+    <div class="bg shadow "></div>
 
     <div class="main">
-        <header class="text-4xl flex-col font-bold">
-            <h1>WELCOME <span><%= user.name %></span></h1>
-            <h2 class="text-sm mt-2">Please! Fill all deatils to optimize your tax saving and get suggestions</h2>
+        <header>
+            <div class="container">
+                <h1>WELCOME <span><%= user.name %></span></h1>
+            </div>
+            <div class="container">
+                <h2>Please! Fill all deatils to optimize your tax saving and get suggestions</h2>
+            </div>
         </header>
-        <a href="/home" class="ml-7 bg-green-600 p-1 rounded-lg mt-2">⬅️Back</a>
+        <a href="/home" class="ml-7 hover:text-blue-600 p-1  font-semibold text-xl rounded-lg mt-2">Back</a>
         <div class="forms p-1">
             <form action="/tool/<%= user.email %>" method="post">
                 <!-- Income Details Section -->
@@ -109,6 +113,9 @@
                         <input type="number" placeholder="Section 80DD Medical Treatment for Dependent with Disability..." name="medicaldisability">
                     </span>
                     <span class="input">
+                        <input type="number" placeholder="Percentage of Disability..." name="medicaldisability_percentage">
+                    </span>
+                    <span class="input">
                         <input type="number" placeholder="Section 80DDB Special Diseases..." name="specialdiseases">
                     </span>
                     <span class="input">
@@ -132,7 +139,6 @@
                     <div class="input">
                         <input type="number" placeholder="Section 80U: Disability for Individuals" name="disability_individuals">
                     </div>
-                    
                     <div class="input">
                         <input type="number" placeholder="Section 80GGA: Donations for Scientific Research or Rural Development" name="donations_scientific_rural_development">
                     </div>
