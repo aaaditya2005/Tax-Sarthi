@@ -436,6 +436,7 @@ body::-webkit-scrollbar {
     width: 100vw;
     background-color: rgba(31,90,111,0.8);
     margin-top: 1rem;
+    display: flex;
     
  }
 
