@@ -23,7 +23,8 @@
             <h1>WELCOME <span><%= user.name %></span></h1>
             <h2 class="text-sm mt-2">Please! Fill all deatils to optimize your tax saving and get suggestions</h2>
         </header>
-        <div class="forms ">
+        <a href="/home" class="ml-7 bg-green-600 p-1 rounded-lg mt-2">⬅️Back</a>
+        <div class="forms p-1">
             <form action="/tool/<%= user.email %>" method="post">
                 <!-- Income Details Section -->
                 <div class="income_details details">
@@ -62,6 +63,9 @@
                     </span>
                     <span class="input">
                         <input type="number" placeholder="Transport Allowance (TA)" name="ta">
+                    </span>
+                    <span class="input">
+                        <input type="number" placeholder="Transport Allowance for Disabled(TA)" name="tad">
                     </span>
                     <span class="input">
                         <input type="number" placeholder="Saving Acc. Interest" name="saving_interest_deductions">
@@ -123,11 +127,8 @@
                         <input type="number" placeholder="Section 80G Donations..." name="donations">
                     </span>
                     <span class="input">
-                        <input type="number" placeholder="Section 80GG House Rent Paid..." name="donations">
+                        <input type="number" placeholder="Section 80GG House Rent Paid..." name="houserent">
                     </span>
-                    <div class="input">
-                        <input type="number" placeholder="Section 80TTA Donations..." name="donations">
-                    </div>
                     <div class="input">
                         <input type="number" placeholder="Section 80U: Disability for Individuals" name="disability_individuals">
                     </div>
