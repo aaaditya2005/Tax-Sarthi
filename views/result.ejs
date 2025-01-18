@@ -10,64 +10,117 @@
     <div class="min-h-screen flex items-center justify-center">
         <div class="bg-white shadow-lg rounded-lg w-full max-w-3xl p-6">
             <h1 class="text-2xl font-bold text-gray-800 mb-4">Hello, <span class="text-blue-600"><%= user.name %></span></h1>
-
             <h2 class="text-xl font-semibold text-gray-700 mb-6">Here is your tax saving comparison:</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="bg-gray-50 p-4 rounded-md shadow-md">
                     <h3 class="text-lg font-bold text-gray-600">Old Tax Regime</h3>
                     <%
-    const salary = parseFloat(formData.salary || 0);
-    const businessIncome = parseFloat(formData.business_income || 0);
-    const rentalIncome = parseFloat(formData.rental_income || 0);
-    const otherIncome = parseFloat(formData.other_income || 0);
-    const savingInterest = parseFloat(formData.saving_interest || 0);
-    const capitalGains = parseFloat(formData.capital_gains || 0);
-    const hra = parseFloat(formData.hra || 0);
-    const hraDeduction = (businessIncome = 0) ? (0.5 * salary) : hra;
+        const salary = parseFloat(formData.salary || 0);
+        const businessIncome = parseFloat(formData.business_income || 0);
+        const rentalIncome = parseFloat(formData.rental_income || 0);
+        const otherIncome = parseFloat(formData.other_income || 0);
+        const savingInterest = parseFloat(formData.saving_interest || 0);
+        const capitalGains = parseFloat(formData.capital_gains || 0);
+        const hra = parseFloat(formData.hra || 0);
+        const hraDeduction = (hra > 0.5 * salary) ? (0.5 * salary) : hra;
 
-    const businessdeductions = (hra > 0.5 * salary) ? 0 : parseFloat(formData.depreciation_assets || 0) +
-    parseFloat(formData.expenditure_scientific_research || 0) +
-    parseFloat(formData.deduction_new_employment || 0) +
-    parseFloat(formData.presumptive_taxation_small_businesses || 0) +
-    parseFloat(formData.presumptive_taxation_professionals || 0) +
-    parseFloat(formData.donations_charitable_institutions || 0) +
-    parseFloat(formData.infrastructure_development || 0) +
-    parseFloat(formData.specific_business_expenditures || 0) +
-    parseFloat(formData.general_business_expenditures || 0); 
-    const deductions = hraDeduction +
-        parseFloat(formData.lta || 0) +
-        parseFloat(formData.cea || 0) +
-        parseFloat(formData.ta || 0) +
-        parseFloat(formData.saving_interest_deductions || 0) +
-        parseFloat(formData.professional_allowance || 0) +
-        parseFloat(formData.uniform_allowance || 0) +
-        parseFloat(formData.lip || 0) +
-        parseFloat(formData.epf || 0) +
-        parseFloat(formData.ppf || 0) +
-        parseFloat(formData.nsc || 0) +
-        parseFloat(formData.ssy || 0) +
-        parseFloat(formData.fd || 0) +
-        parseFloat(formData.elss || 0) +
-        parseFloat(formData.NPS || 0) +
-        parseFloat(formData.medical || 0) +
-        parseFloat(formData.medicaldisability || 0) +
-        parseFloat(formData.specialdiseases || 0) +
-        parseFloat(formData.eduloan || 0) +
-        parseFloat(formData.homeloan || 0) +
-        parseFloat(formData.firsthome || 0) +
-        parseFloat(formData.ev || 0) +
-        parseFloat(formData.donations || 0) +
-        if(hra==0) {parseFloat(formData.houserent || 0)} +
-        parseFloat(formData.disability_individuals || 0) +
-        parseFloat(formData.donations_scientific_rural_development || 0) +
-        parseFloat(formData.donations_companies_political_parties || 0) +
-        parseFloat(formData.donations_individuals_political_parties || 0) + businessdeductions ;
-    const deudctionsnew = parseFloat(formData.NPS || 0) + parseFloat(formData.tad || 0);
-    const totalIncome = salary + businessIncome + rentalIncome + otherIncome + savingInterest + capitalGains;
-    const taxableincomeold = totalIncome - deductions - 50000;
-    const taxableincomenew = totalIncome - deductions - 75000;
-%>
+        const eightyC = parseFloat(formData.lip || 0) +
+            parseFloat(formData.epf || 0) +
+            parseFloat(formData.ppf || 0) +
+            parseFloat(formData.nsc || 0) +
+            parseFloat(formData.ssy || 0) +
+            parseFloat(formData.fd || 0) +
+            parseFloat(formData.elss || 0) +
+            parseFloat(formData.NPS || 0);
+        const eightyCDeductions = (eightyC > 150000) ? 150000 : eightyC;
+
+        const cea = parseFloat(formData.cea || 0);
+        const ceaDeductions = (cea > 9600) ? 9600 : cea;
+
+        const ta = parseFloat(formData.ta || 0);
+        const taDeductions = (ta > 19200) ? 19200 : ta;
+
+        const tad = parseFloat(formData.tad || 0);
+        const tadDeductions = (tad > 38400) ? 38400 : tad;
+
+        const savingAcc = parseFloat(formData.saving_interest_deductions || 0);
+        const savingInterestDeductions = (calculateAge(user.dob) > 60) 
+            ? Math.min(savingAcc, 50000) 
+            : Math.min(savingAcc, 10000);
+
+        const eightyD = parseFloat(formData.medical || 0);
+        const eightyDDeductions = (calculateAge(user.dob) > 60) 
+            ? Math.min(eightyD, 50000) 
+            : Math.min(eightyD, 30000);
+
+        const medicalDisability = parseFloat(formData.medicaldisability || 0);
+        const medicalDisabilityPercentage = parseFloat(formData.medicaldisability_percentage || 0);
+        const eightyDDDeductions = (medicalDisabilityPercentage > 39 && medicalDisabilityPercentage < 80)
+            ? Math.min(medicalDisability, 75000)
+            : (medicalDisabilityPercentage > 79) 
+                ? Math.min(medicalDisability, 125000) 
+                : 0;
+
+        const specialDiseases = parseFloat(formData.specialdiseases || 0);
+        const eightyDDBDeductions = (calculateAge(user.dob) > 60)
+            ? Math.min(specialDiseases, 100000)
+            : Math.min(specialDiseases, 40000);
+
+        const homeLoan = parseFloat(formData.homeloan || 0);
+        const homeLoanDeductions = Math.min(homeLoan, 50000);
+
+        const firstHome = parseFloat(formData.firsthome || 0);
+        const firstHomeDeductions = Math.min(firstHome, 150000);
+
+        const ev = parseFloat(formData.ev || 0);
+        const evDeductions = Math.min(ev, 150000);
+
+        <!--------------------------------------------------------->
+        
+        
+        const businessDeductions = (businessIncome === 0) ? 0 : 
+            parseFloat(formData.depreciation_assets || 0) +
+            parseFloat(formData.expenditure_scientific_research || 0) +
+            parseFloat(formData.deduction_new_employment || 0) +
+            parseFloat(formData.presumptive_taxation_small_businesses || 0) +
+            parseFloat(formData.presumptive_taxation_professionals || 0) +
+            parseFloat(formData.donations_charitable_institutions || 0) +
+            parseFloat(formData.infrastructure_development || 0) +
+            parseFloat(formData.specific_business_expenditures || 0) +
+            parseFloat(formData.general_business_expenditures || 0);
+
+        const additionalDeduction = hra === 0 ? parseFloat(formData.houserent || 0) : 0;
+
+        const deductions = hraDeduction +
+            parseFloat(formData.lta || 0) +
+            ceaDeductions +
+            taDeductions +
+            tadDeductions +
+            savingInterestDeductions +
+            parseFloat(formData.professional_allowance || 0) +
+            parseFloat(formData.uniform_allowance || 0) +
+            eightyCDeductions +
+            eightyDDeductions +
+            eightyDDDeductions +
+            eightyDDBDeductions +
+            parseFloat(formData.eduloan || 0) +
+            homeLoanDeductions +
+            firstHomeDeductions +
+            evDeductions +
+            parseFloat(formData.donations || 0) +
+            additionalDeduction +
+            parseFloat(formData.donations_scientific_rural_development || 0) +
+            parseFloat(formData.donations_individuals_political_parties || 0) +
+            businessDeductions + 50000;
+
+        const deductionsNew = parseFloat(formData.NPS || 0) + parseFloat(formData.tad || 0) + 75000;
+
+        const totalIncome = salary + businessIncome + rentalIncome + otherIncome + savingInterest + capitalGains;
+        const taxableIncomeOld = totalIncome - deductions;
+        const taxableIncomeNew = totalIncome - deductionsNew ;
+        %>
+                
 
 <p class="mt-2 text-gray-700">
     Income: ₹<%= totalIncome.toFixed(2) %>
@@ -76,39 +129,39 @@
     Deductions: ₹<%= deductions.toFixed(2) %>
 </p>
 <p class="mt-1 text-gray-700">
-    Taxable Income: ₹<%= taxableincomeold.toFixed(2) %>
+    Taxable income: ₹<%= taxableIncomeOld.toFixed(2) %>
 </p>
 <%
     const age = calculateAge(user.dob);
     let taxPayable = 0;
 
     if (age < 60) {
-        if (taxableincomeold <= 250000) {
+        if (taxableIncomeOld <= 250000) {
             taxPayable = 0;
-        } else if (taxableincomeold <= 500000) {
+        } else if (taxableIncomeOld <= 500000) {
             taxPayable = 0;
-        } else if (taxableincomeold <= 1000000) {
-            taxPayable = (500000 - 250000) * 0.05 + (taxableincomeold - 500000) * 0.20;
+        } else if (taxableIncomeOld <= 1000000) {
+            taxPayable = (500000 - 250000) * 0.05 + (taxableIncomeOld - 500000) * 0.20;
         } else {
-            taxPayable = (500000 - 250000) * 0.05 + (1000000 - 500000) * 0.20 + (taxableincomeold - 1000000) * 0.30;
+            taxPayable = (500000 - 250000) * 0.05 + (1000000 - 500000) * 0.20 + (taxableIncomeOld - 1000000) * 0.30;
         }
     } else if (age < 80) {
-        if (taxableincomeold <= 300000) {
+        if (taxableIncomeOld <= 300000) {
             taxPayable = 0;
-        } else if (taxableincomeold <= 500000) {
+        } else if (taxableIncomeOld <= 500000) {
             taxPayable = 0;
-        } else if (taxableincomeold <= 1000000) {
-            taxPayable = (500000 - 300000) * 0.05 + (taxableincomeold - 500000) * 0.20;
+        } else if (taxableIncomeOld <= 1000000) {
+            taxPayable = (500000 - 300000) * 0.05 + (taxableIncomeOld - 500000) * 0.20;
         } else {
-            taxPayable = (500000 - 300000) * 0.05 + (1000000 - 500000) * 0.20 + (taxableincomeold - 1000000) * 0.30;
+            taxPayable = (500000 - 300000) * 0.05 + (1000000 - 500000) * 0.20 + (taxableIncomeOld - 1000000) * 0.30;
         }
     } else {
-        if (taxableincomeold <= 500000) {
+        if (taxableIncomeOld <= 500000) {
             taxPayable = 0;
-        } else if (taxableincomeold <= 1000000) {
-            taxPayable = (taxableincomeold - 500000) * 0.20;
+        } else if (taxableIncomeOld <= 1000000) {
+            taxPayable = (taxableIncomeOld - 500000) * 0.20;
         } else {
-            taxPayable = (1000000 - 500000) * 0.20 + (taxableincomeold - 1000000) * 0.30;
+            taxPayable = (1000000 - 500000) * 0.20 + (taxableIncomeOld - 1000000) * 0.30;
         }
     }
 %>
@@ -124,38 +177,91 @@
                     <p class="mt-2 text-gray-700">
                         Income: ₹<%= totalIncome.toFixed(2) %>
                     </p>
-                    <p class="mt-1 text-gray-700">Deductions: Not applicable</p>
+                    <p class="mt-1 text-gray-700">Deductions:₹<%=deductionsNew %></p>
                     <p class="mt-1 text-gray-700">
-                        Taxable Income: ₹<%= taxableincomenew.toFixed(2) %>
+                        Taxable Income: ₹<%= taxableIncomeNew.toFixed(2) %>
                     </p>
                     <%
                     let taxPayablenew = 0;
                 
                     // Tax Calculation based on tax slabs
-                    if (taxableincomeold <= 300000) {
+                    if (taxableIncomeNew <= 300000) {
                         taxPayablenew = 0;
-                    } else if (taxableincomeold <= 700000) {
+                    } else if (taxableIncomeNew <= 700000) {
                         taxPayablenew = 0;
-                    } else if (taxableincomeold <= 1000000) {
-                        taxPayablenew = (700000 - 300000) * 0.05 + (taxableincomeold - 700000) * 0.10;
-                    } else if (taxableincomeold <= 1200000) {
-                        taxPayablenew = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (taxableincomeold - 1000000) * 0.15;
-                    } else if (taxableincomeold <= 1500000) {
-                        taxPayablenew = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (1200000 - 1000000) * 0.15 + (taxableincomeold - 1200000) * 0.20;
+                    } else if (taxableIncomeNew <= 1000000) {
+                        taxPayablenew = (700000 - 300000) * 0.05 + (taxableIncomeNew - 700000) * 0.10;
+                    } else if (taxableIncomeNew <= 1200000) {
+                        taxPayablenew = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (taxableIncomeNew - 1000000) * 0.15;
+                    } else if (taxableIncomeNew <= 1500000) {
+                        taxPayablenew = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (1200000 - 1000000) * 0.15 + (taxableIncomeNew - 1200000) * 0.20;
                     } else {
-                        taxPayablenew = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (1200000 - 1000000) * 0.15 + (1500000 - 1200000) * 0.20 + (taxableincomeold - 1500000) * 0.30;
+                        taxPayablenew = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (1200000 - 1000000) * 0.15 + (1500000 - 1200000) * 0.20 + (taxableIncomeNew - 1500000) * 0.30;
                     }
                 %>
                 
                     <p class="mt-1 text-gray-700">Tax Payable: ₹<%= taxPayablenew %></p>
                 </div>
             </div>
+            
+            <%
+            let taxsaved = 0;
+             if(taxPayablenew > taxPayable){
+                let taxwithoutdeductions = 0;
+                if (age < 60) {
+                    if (totalIncome <= 250000) {
+                        taxwithoutdeductions = 0;
+                    } else if (totalIncome <= 500000) {
+                        taxwithoutdeductions = 0;
+                    } else if (totalIncome <= 1000000) {
+                        taxwithoutdeductions = (500000 - 250000) * 0.05 + (totalIncome - 500000) * 0.20;
+                    } else {
+                        taxwithoutdeductions = (500000 - 250000) * 0.05 + (1000000 - 500000) * 0.20 + (totalIncome - 1000000) * 0.30;
+                    }
+                } else if (age < 80) {
+                    if (totalIncome <= 300000) {
+                        taxwithoutdeductions = 0;
+                    } else if (totalIncome <= 500000) {
+                        taxwithoutdeductions = 0;
+                    } else if (totalIncome <= 1000000) {
+                        taxwithoutdeductions = (500000 - 300000) * 0.05 + (totalIncome - 500000) * 0.20;
+                    } else {
+                        taxwithoutdeductions = (500000 - 300000) * 0.05 + (1000000 - 500000) * 0.20 + (totalIncome - 1000000) * 0.30;
+                    }
+                } else {
+                    if (totalIncome <= 500000) {
+                        taxwithoutdeductions = 0;
+                    } else if (totalIncome <= 1000000) {
+                        taxwithoutdeductions = (totalIncome - 500000) * 0.20;
+                    } else {
+                        taxwithoutdeductions = (1000000 - 500000) * 0.20 + (totalIncome - 1000000) * 0.30;
+                    }
+                }
 
+                taxsaved = taxwithoutdeductions - taxPayable;
+             }else if(taxPayablenew < taxPayable){
+                let taxwithoutdeductions = 0;
+                if (totalIncome <= 300000) {
+                    taxwithoutdeductions = 0;
+                } else if (totalIncome <= 700000) {
+                    taxwithoutdeductions = 0;
+                } else if (totalIncome <= 1000000) {
+                    taxwithoutdeductions = (700000 - 300000) * 0.05 + (totalIncome - 700000) * 0.10;
+                } else if (totalIncome <= 1200000) {
+                    taxwithoutdeductions = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (totalIncome - 1000000) * 0.15;
+                } else if (totalIncome <= 1500000) {
+                    taxwithoutdeductions = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (1200000 - 1000000) * 0.15 + (totalIncome - 1200000) * 0.20;
+                } else {
+                    taxwithoutdeductions = (700000 - 300000) * 0.05 + (1000000 - 700000) * 0.10 + (1200000 - 1000000) * 0.15 + (1500000 - 1200000) * 0.20 + (totalIncome - 1500000) * 0.30;
+                }
+                taxsaved = taxwithoutdeductions - taxPayablenew;
+
+             }
+            %>
             <div class="mt-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
-                <p class="font-semibold">Tax Saved:</p>
-                <p class="text-lg">₹<%=  %></p>
+                <p class="font-semibold">Tax Saved in less taxPayable Regime Because of deductions : ₹<%= taxsaved.toFixed(2) %> </p>
             </div>
-
+            <a  href="/suggestions" class="font-semibold hover:text-green-500">See Suggestions</a>
             <div class="mt-8 text-center">
                 <a href="/tool" class="text-blue-600 hover:underline">Go Back to Tool</a>
             </div>
