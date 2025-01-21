@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Comparison Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/result.css">
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="min-h-screen flex items-center justify-center">
@@ -77,22 +79,20 @@
         const evDeductions = Math.min(ev, 150000);
 
         <!--------------------------------------------------------->
-        
-        
+
         const businessDeductions = (businessIncome === 0) ? 0 : 
-            parseFloat(formData.depreciation_assets || 0) +
+            parseFloat(formData.depreciation_assets || 0)+
             parseFloat(formData.expenditure_scientific_research || 0) +
-            parseFloat(formData.deduction_new_employment || 0) +
-            parseFloat(formData.presumptive_taxation_small_businesses || 0) +
-            parseFloat(formData.presumptive_taxation_professionals || 0) +
+            parseFloat(formData.deduction_new_employment || 0) * 30 +
             parseFloat(formData.donations_charitable_institutions || 0) +
             parseFloat(formData.infrastructure_development || 0) +
             parseFloat(formData.specific_business_expenditures || 0) +
             parseFloat(formData.general_business_expenditures || 0);
 
         const additionalDeduction = hra === 0 ? parseFloat(formData.houserent || 0) : 0;
+        const totalIncome = salary + businessIncome + rentalIncome + otherIncome + savingInterest + capitalGains;
 
-        const deductions = hraDeduction +
+        const deductions = totalIncome ===0 ? 0 : hraDeduction +
             parseFloat(formData.lta || 0) +
             ceaDeductions +
             taDeductions +
@@ -114,9 +114,9 @@
             parseFloat(formData.donations_individuals_political_parties || 0) +
             businessDeductions + 50000;
 
-        const deductionsNew = parseFloat(formData.NPS || 0) + parseFloat(formData.tad || 0) + 75000;
+        const deductionsNew =totalIncome ===0 ? 0 : parseFloat(formData.NPS || 0) + parseFloat(formData.tad || 0) + 75000;
 
-        const totalIncome = salary + businessIncome + rentalIncome + otherIncome + savingInterest + capitalGains;
+        
         const taxableIncomeOld = totalIncome - deductions;
         const taxableIncomeNew = totalIncome - deductionsNew ;
         %>
@@ -133,6 +133,7 @@
 </p>
 <%
     const age = calculateAge(user.dob);
+    let maritalstatusx = user.marrtialstatus;
     let taxPayable = 0;
 
     if (age < 60) {
@@ -238,7 +239,7 @@
                     }
                 }
 
-                taxsaved = taxwithoutdeductions - taxPayable;
+             taxsaved = taxwithoutdeductions - taxPayable;
              }else if(taxPayablenew < taxPayable){
                 let taxwithoutdeductions = 0;
                 if (totalIncome <= 300000) {
@@ -261,11 +262,115 @@
             <div class="mt-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
                 <p class="font-semibold">Tax Saved in less taxPayable Regime Because of deductions : ₹<%= taxsaved.toFixed(2) %> </p>
             </div>
-            <a  href="/suggestions" class="font-semibold hover:text-green-500">See Suggestions</a>
+            <label for="suggestions" class="suggestions">
+                See Suggestions
+                <!-- <a  href="/suggestions" class="font-semibold hover:text-green-500">See Suggestions</a> -->
+            </label>
+            <!-- <input type="checkbox" id="suggestions"> -->
+
+           <div class="sugg">
+            <!-- <div class="hide">
+                <ul>
+                    Focus: Wealth creation, tax savings, and minimal lock-in periods.
+                    <li>1. Equity Linked Savings Scheme (ELSS): High returns, 3-year lock-in.</li>
+                    <li>2. National Pension Scheme (NPS): Long-term retirement savings, additional ₹50,000
+                        deduction under 80CCD(1B).</li>
+                    <li>3. Public Provident Fund (PPF): EEE benefit, secure, long-term savings.</li>
+                    <li>4. Unit Linked Insurance Plans (ULIPs): Investment + insurance, moderate returns.</li>
+                    <li>5. Employee Provident Fund (EPF): If applicable.</li>
+                    <li>6. Home Loan Principal Repayment: If you’ve recently purchased property.</li>
+                    <li>7. Life Insurance Premiums: Choose term plans for affordable coverage.</li>
+                    <li>8. National Savings Certificate (NSC): Secure, 5-year lock-in.</li>
+                    <li>9. Tax-Saving Fixed Deposits (FDs): 5-year lock-in, safe but taxable interest.</li>
+                    <li>10. Sukanya Samriddhi Yojana (SSY): If you have a daughter (long-term).</li>
+                    
+                </ul>
+            </div> -->
+            <div class="hide">
+                <h1 class="text-green-800">*Suggetions According to Your Age(<%=calculateAge(user.dob)%>) </h1>
+                <%   if (age < 25) { %>
+                        
+                        <p>Focus: Wealth creation, tax savings, and minimal lock-in periods.</p>
+                        <ul>
+                            <% if (parseFloat(formData.elss || 0) === 0) { %>
+                                <li>Equity Linked Savings Scheme (ELSS): High returns, 3-year lock-in.</li>
+                            <% } %>
+                            <% if (parseFloat(formData.NPS || 0) === 0) { %>
+                                <li>National Pension Scheme (NPS): Long-term retirement savings, additional ₹50,000 deduction under 80CCD(1B).</li>
+                            <% } %>
+                            <% if (parseFloat(formData.ppf || 0) === 0) { %>
+                                <li>Public Provident Fund (PPF): EEE benefit, secure, long-term savings.</li>
+                            <% } %>
+                            <% if (parseFloat(formData.ulips || 0) === 0) { %>
+                                <li>Unit Linked Insurance Plans (ULIPs): Investment + insurance, moderate returns.</li>
+                            <% } %>
+                            <% if (parseFloat(formData.epf || 0) === 0) { %>
+                                <li>Employee Provident Fund (EPF): If applicable.</li>
+                            <% } %>
+
+                            <li>Home Loan Principal Repayment: If you've recently purchased property.</li>
+
+                            <li>Life Insurance Premiums: Choose term plans for affordable coverage.</li>
+
+                            <li>National Savings Certificate (NSC): Secure, 5-year lock-in.</li>
+
+                            <li>Tax-Saving Fixed Deposits (FDs): 5-year lock-in, safe but taxable interest.</li>
+
+                            <li>Sukanya Samriddhi Yojana (SSY): If you have a daughter (long-term).</li>
+
+                            <li>Tuition Fees: For higher education (if applicable).</li>
+                        </ul>
+                <% } else if (age > 25 && maritalstatusx === "Unmarried") { %>
+                        <p>Focus: Retirement, dependents' financial security, and tax savings.</p>
+                        <ul>
+                            <li>Employee Provident Fund (EPF): Automatically deducted, secure retirement savings.</li>
+                            <li>Public Provident Fund (PPF): Secure, tax-free, long-term.</li>
+                            <li>National Pension Scheme (NPS): For retirement savings, additional deductions under 80CCD(1B).</li>
+                            <li>Life Insurance Premiums: Prioritize term plans.</li>
+                            <li>Sukanya Samriddhi Yojana (SSY): If you have a daughter.</li>
+                            <li>Home Loan Principal Repayment: Asset creation with tax benefits.</li>
+                            <li>National Savings Certificate (NSC): Secure, fixed returns.</li>
+                            <li>Equity Linked Savings Scheme (ELSS): For moderate risk takers.</li>
+                            <li>Tax-Saving Fixed Deposits (FDs): For ultra-conservative savers.</li>
+                            <li>Unit Linked Insurance Plans (ULIPs): If combining investment and insurance.</li>
+                            <li>Tuition Fees: Applicable if you have children in school/college.</li>
+                        </ul>
+                <% } else if (age > 25 && maritalstatusx === "Married" && user.children > 0) { %>
+                        <p>Focus: Children's education, marriage, and tax savings.</p>
+                        <ul>
+                            <li>Sukanya Samriddhi Yojana (SSY): Highest priority if you have a daughter.</li>
+                            <li>Tuition Fees: Direct benefit for up to 2 children.</li>
+                            <li>Life Insurance Premiums: For family security (opt for term plans).</li>
+                            <li>Public Provident Fund (PPF): Secure savings for long-term goals.</li>
+                            <li>Home Loan Principal Repayment: If you've invested in property.</li>
+                            <li>Employee Provident Fund (EPF): For salaried individuals.</li>
+                            <li>National Pension Scheme (NPS): For retirement planning.</li>
+                            <li>National Savings Certificate (NSC): Fixed returns with a 5-year lock-in.</li>
+                        </ul>
+                <% } else if (age > 60) { %>
+                        <p>Focus: Regular income, tax savings, and safe investments.</p>
+                        <ul>
+                            <li>Senior Citizens Savings Scheme (SCSS): Best option for retirees (high interest, regular income).</li>
+                            <li>Public Provident Fund (PPF): Tax-free, long-term savings.</li>
+                            <li>National Savings Certificate (NSC): Secure, fixed returns.</li>
+                            <li>Tax-Saving Fixed Deposits (FDs): Short-term and secure.</li>
+                            <li>Life Insurance Premiums: If still maintaining a policy.</li>
+                            <li>Employee Provident Fund (EPF): If still contributing.</li>
+                            <li>Home Loan Principal Repayment: If you have an active loan.</li>
+                            <li>Sukanya Samriddhi Yojana (SSY): For retired parents of daughters below 10 years.</li>
+                            <li>Unit Linked Insurance Plans (ULIPs): Rarely needed at this stage.</li>
+                            <li>National Pension Scheme (NPS): If partial corpus withdrawal is pending.</li>
+                            <li>Equity Linked Savings Scheme (ELSS): Low priority due to market risks.</li>
+                        </ul>
+                <% } %>
+            </div>
+         </div>
+            
             <div class="mt-8 text-center">
                 <a href="/tool" class="text-blue-600 hover:underline">Go Back to Tool</a>
             </div>
         </div>
     </div>
+    <script src="/result.js"></script>
 </body>
-</html>
+</html> 

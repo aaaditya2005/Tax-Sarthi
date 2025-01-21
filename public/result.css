@@ -5,7 +5,7 @@
 
 body{
     overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 
@@ -40,4 +40,29 @@ body{
     overflow-x: hidden; 
 
 
+}
+.sugg {
+    margin: 3rem 0 0 0;
+    /* display: none; */
+}
+
+.sugg .hide {
+    display: none;
+}
+
+.suggestions{
+    position: relative;
+    top: 1rem; 
+    text-decoration: underline;
+}
+.suggestions:hover {
+    color: rgb(10, 203, 10);
+    font-weight: 500;
+    transform: scale(1.1);
+}
+
+.sugg ul li {
+    height: 4rem;
+    display: flex;
+    align-items: center;
 }

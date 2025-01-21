@@ -20,7 +20,14 @@ const userSchmea = mongoose.Schema({
       password: {
         type: String,
         required: true, 
-      },    
+      },  
+      marrtialstatus :{
+          type: String,
+         
+      }  ,
+      childrens:{
+        type:Number,
+     }
 })
 
 module.exports = mongoose.model('user',userSchmea);

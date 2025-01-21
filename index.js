@@ -25,7 +25,7 @@ app.get("/signup",(req,res)=>{
 })
 
 app.post("/signup", async (req, res) => {
-    let { name, email, dob, password } = req.body;
+    let { name, email, dob, password,marrtialstatus,childrens } = req.body;
     let user = await userModel.findOne({ email });
     if (user) {
         return res.redirect("/signup");
@@ -38,6 +38,8 @@ app.post("/signup", async (req, res) => {
                 dob: dob.split('/').reverse().join('-'),
                 email,
                 password: hash,
+                marrtialstatus,
+                childrens,
             });
 
             const token = jwt.sign({ email: Createduser.email, userid: Createduser.id }, process.env.JWT_SECRET_KEY, {
@@ -89,8 +91,7 @@ app.get("/tool",isloggedin,async(req,res)=>{
 
 app.post('/tool/:email', isloggedin, async (req, res) => {
     let user = await userModel.findOne({ email: req.user.email });
-
-    console.log("Form Data:", req.body); 
+    
     const formData = req.body; 
     res.render('result.ejs', { user, formData, calculateAge });
 });

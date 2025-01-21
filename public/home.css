@@ -560,9 +560,48 @@ header span .button:hover{
  /* ------------------------------------- */
 
  footer{
-    height: 11rem;
+    /* height: 11rem; */
     width: 100vw;
-    background-color: rgba(31,90,111,0.8);
+    background-color: rgb(31,90,111);
     margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    font-family: "Montserrat", serif;
+    font-size: 0.9rem;
+    /* justify-content: space-evenly; */
+    padding: 1rem;
+
+ 
+ }
+
+ footer a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+    transition-duration: 0.5s;
+ }
+
+ footer a:hover{
+    text-decoration: underline;
+    transform: scale(1.1);
+ }
+
+
+ footer .emails{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/2;
+    text-align: center;
     
+ }
+
+ footer .calls {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    grid-column: 3/4;
+    text-align: center;
  }
