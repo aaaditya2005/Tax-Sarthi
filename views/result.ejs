@@ -15,7 +15,7 @@
             <h2 class="text-xl font-semibold text-gray-700 mb-6">Here is your tax saving comparison:</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="bg-gray-50 p-4 rounded-md shadow-md">
+                <div class="box1 bg-gray-50 p-4 rounded-md shadow-md">
                     <h3 class="text-lg font-bold text-gray-600">Old Tax Regime</h3>
                     <%
         const salary = parseFloat(formData.salary || 0);
@@ -167,13 +167,13 @@
     }
 %>
 
-<p class="mt-1 text-gray-700">
-    Tax Payable: ₹<%= taxPayable.toFixed(2) %>
-</p>
-
+                <p class="taxold mt-1 text-gray-700">
+                    Tax Payable: ₹<%= taxPayable.toFixed(2) %>
+                </p>
+               
 
                 </div>
-                <div class="bg-gray-50 p-4 rounded-md shadow-md">
+                <div class="box2 bg-gray-50 p-4 rounded-md shadow-md">
                     <h3 class="text-lg font-bold text-gray-600">New Tax Regime</h3>
                     <p class="mt-2 text-gray-700">
                         Income: ₹<%= totalIncome.toFixed(2) %>
@@ -201,10 +201,11 @@
                     }
                 %>
                 
-                    <p class="mt-1 text-gray-700">Tax Payable: ₹<%= taxPayablenew %></p>
+                    <p class="taxnew mt-1 text-gray-700">Tax Payable: ₹<%= taxPayablenew %></p>
                 </div>
             </div>
             
+
             <%
             let taxsaved = 0;
              if(taxPayablenew > taxPayable){
@@ -259,9 +260,9 @@
 
              }
             %>
-            <div class="mt-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
+            <!-- <div class="mt-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
                 <p class="font-semibold">Tax Saved in less taxPayable Regime Because of deductions : ₹<%= taxsaved.toFixed(2) %> </p>
-            </div>
+            </div> -->
             <label for="suggestions" class="suggestions">
                 See Suggestions
                 <!-- <a  href="/suggestions" class="font-semibold hover:text-green-500">See Suggestions</a> -->
@@ -269,23 +270,6 @@
             <!-- <input type="checkbox" id="suggestions"> -->
 
            <div class="sugg">
-            <!-- <div class="hide">
-                <ul>
-                    Focus: Wealth creation, tax savings, and minimal lock-in periods.
-                    <li>1. Equity Linked Savings Scheme (ELSS): High returns, 3-year lock-in.</li>
-                    <li>2. National Pension Scheme (NPS): Long-term retirement savings, additional ₹50,000
-                        deduction under 80CCD(1B).</li>
-                    <li>3. Public Provident Fund (PPF): EEE benefit, secure, long-term savings.</li>
-                    <li>4. Unit Linked Insurance Plans (ULIPs): Investment + insurance, moderate returns.</li>
-                    <li>5. Employee Provident Fund (EPF): If applicable.</li>
-                    <li>6. Home Loan Principal Repayment: If you’ve recently purchased property.</li>
-                    <li>7. Life Insurance Premiums: Choose term plans for affordable coverage.</li>
-                    <li>8. National Savings Certificate (NSC): Secure, 5-year lock-in.</li>
-                    <li>9. Tax-Saving Fixed Deposits (FDs): 5-year lock-in, safe but taxable interest.</li>
-                    <li>10. Sukanya Samriddhi Yojana (SSY): If you have a daughter (long-term).</li>
-                    
-                </ul>
-            </div> -->
             <div class="hide">
                 <h1 class="text-green-800">*Suggetions According to Your Age(<%=calculateAge(user.dob)%>) </h1>
                 <%   if (age < 25) { %>
